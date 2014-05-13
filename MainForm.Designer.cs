@@ -29,59 +29,60 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.button1 = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.callPlacesFormBtn = new System.Windows.Forms.Button();
+            this.sexSelect_1 = new System.Windows.Forms.RadioButton();
+            this.sexSelect_2 = new System.Windows.Forms.RadioButton();
+            this.placeCodeBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.birthBox = new System.Windows.Forms.TextBox();
+            this.generateBtn = new System.Windows.Forms.Button();
+            this.idNumBox = new System.Windows.Forms.TextBox();
+            this.checkBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.helpBtn = new System.Windows.Forms.Button();
+            this.exitBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // callPlacesFormBtn
             // 
-            this.button1.Location = new System.Drawing.Point(118, 24);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(53, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "？";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.callPlacesFormBtn.Location = new System.Drawing.Point(118, 24);
+            this.callPlacesFormBtn.Name = "callPlacesFormBtn";
+            this.callPlacesFormBtn.Size = new System.Drawing.Size(53, 21);
+            this.callPlacesFormBtn.TabIndex = 0;
+            this.callPlacesFormBtn.Text = "？";
+            this.callPlacesFormBtn.UseVisualStyleBackColor = true;
+            this.callPlacesFormBtn.Click += new System.EventHandler(this.callPlacesFormBtn_Click);
             // 
-            // radioButton1
+            // sexSelect_1
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(12, 91);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(35, 16);
-            this.radioButton1.TabIndex = 1;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "男";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.sexSelect_1.AutoSize = true;
+            this.sexSelect_1.Checked = true;
+            this.sexSelect_1.Location = new System.Drawing.Point(12, 91);
+            this.sexSelect_1.Name = "sexSelect_1";
+            this.sexSelect_1.Size = new System.Drawing.Size(35, 16);
+            this.sexSelect_1.TabIndex = 1;
+            this.sexSelect_1.TabStop = true;
+            this.sexSelect_1.Text = "男";
+            this.sexSelect_1.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // sexSelect_2
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(53, 91);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(35, 16);
-            this.radioButton2.TabIndex = 2;
-            this.radioButton2.Text = "女";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.sexSelect_2.AutoSize = true;
+            this.sexSelect_2.Location = new System.Drawing.Point(53, 91);
+            this.sexSelect_2.Name = "sexSelect_2";
+            this.sexSelect_2.Size = new System.Drawing.Size(35, 16);
+            this.sexSelect_2.TabIndex = 2;
+            this.sexSelect_2.Text = "女";
+            this.sexSelect_2.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // placeCodeBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 24);
-            this.textBox1.MaxLength = 6;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 3;
+            this.placeCodeBox.Location = new System.Drawing.Point(12, 24);
+            this.placeCodeBox.MaxLength = 6;
+            this.placeCodeBox.Name = "placeCodeBox";
+            this.placeCodeBox.Size = new System.Drawing.Size(100, 21);
+            this.placeCodeBox.TabIndex = 3;
             // 
             // label1
             // 
@@ -101,41 +102,41 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "出生日期（YYYYMMDD）：";
             // 
-            // textBox2
+            // birthBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 63);
-            this.textBox2.MaxLength = 8;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 21);
-            this.textBox2.TabIndex = 6;
+            this.birthBox.Location = new System.Drawing.Point(12, 63);
+            this.birthBox.MaxLength = 8;
+            this.birthBox.Name = "birthBox";
+            this.birthBox.Size = new System.Drawing.Size(100, 21);
+            this.birthBox.TabIndex = 6;
             // 
-            // button2
+            // generateBtn
             // 
-            this.button2.Location = new System.Drawing.Point(118, 84);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(53, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "生成";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.generateBtn.Location = new System.Drawing.Point(118, 84);
+            this.generateBtn.Name = "generateBtn";
+            this.generateBtn.Size = new System.Drawing.Size(53, 23);
+            this.generateBtn.TabIndex = 7;
+            this.generateBtn.Text = "生成";
+            this.generateBtn.UseVisualStyleBackColor = true;
+            this.generateBtn.Click += new System.EventHandler(this.generateBtn_Click);
             // 
-            // textBox3
+            // idNumBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(12, 125);
-            this.textBox3.MaxLength = 18;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(128, 21);
-            this.textBox3.TabIndex = 8;
+            this.idNumBox.Location = new System.Drawing.Point(12, 125);
+            this.idNumBox.MaxLength = 18;
+            this.idNumBox.Name = "idNumBox";
+            this.idNumBox.Size = new System.Drawing.Size(128, 21);
+            this.idNumBox.TabIndex = 8;
             // 
-            // button3
+            // checkBtn
             // 
-            this.button3.Location = new System.Drawing.Point(146, 125);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(25, 23);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "!";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.checkBtn.Location = new System.Drawing.Point(146, 125);
+            this.checkBtn.Name = "checkBtn";
+            this.checkBtn.Size = new System.Drawing.Size(25, 21);
+            this.checkBtn.TabIndex = 9;
+            this.checkBtn.Text = "!";
+            this.checkBtn.UseVisualStyleBackColor = true;
+            this.checkBtn.Click += new System.EventHandler(this.checkBtn_Click);
             // 
             // label3
             // 
@@ -146,33 +147,44 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "身份证号码：";
             // 
-            // button4
+            // helpBtn
             // 
-            this.button4.Location = new System.Drawing.Point(12, 152);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(53, 20);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "说明";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.helpBtn.Location = new System.Drawing.Point(12, 152);
+            this.helpBtn.Name = "helpBtn";
+            this.helpBtn.Size = new System.Drawing.Size(53, 20);
+            this.helpBtn.TabIndex = 11;
+            this.helpBtn.Text = "说明";
+            this.helpBtn.UseVisualStyleBackColor = true;
+            this.helpBtn.Click += new System.EventHandler(this.helpBtn_Click);
+            // 
+            // exitBtn
+            // 
+            this.exitBtn.Location = new System.Drawing.Point(118, 152);
+            this.exitBtn.Name = "exitBtn";
+            this.exitBtn.Size = new System.Drawing.Size(53, 20);
+            this.exitBtn.TabIndex = 12;
+            this.exitBtn.Text = "退出";
+            this.exitBtn.UseVisualStyleBackColor = true;
+            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(180, 180);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.exitBtn);
+            this.Controls.Add(this.helpBtn);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.checkBtn);
+            this.Controls.Add(this.idNumBox);
+            this.Controls.Add(this.generateBtn);
+            this.Controls.Add(this.birthBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.placeCodeBox);
+            this.Controls.Add(this.sexSelect_2);
+            this.Controls.Add(this.sexSelect_1);
+            this.Controls.Add(this.callPlacesFormBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
@@ -185,18 +197,19 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button callPlacesFormBtn;
+        private System.Windows.Forms.RadioButton sexSelect_1;
+        private System.Windows.Forms.RadioButton sexSelect_2;
+        private System.Windows.Forms.TextBox placeCodeBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox birthBox;
+        private System.Windows.Forms.Button generateBtn;
+        private System.Windows.Forms.TextBox idNumBox;
+        private System.Windows.Forms.Button checkBtn;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button helpBtn;
+        private System.Windows.Forms.Button exitBtn;
     }
 }
 

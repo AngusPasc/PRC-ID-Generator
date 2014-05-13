@@ -24,41 +24,47 @@ namespace PRCIDGenerator
                 sumOfId += (Convert.ToInt32(idNum[i].ToString()) * xs[i]);
             return lst[sumOfId % 11];
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void callPlacesFormBtn_Click(object sender, EventArgs e)
         {
             Form idpsf = new IDPlacesShowForm();
             idpsf.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void checkBtn_Click(object sender, EventArgs e)
         {
-            if (textBox3.Text.Length != 18)
+            if (idNumBox.Text.Length != 18)
             {
                 MessageBox.Show("长度不符合规范。", "结果");
                 return;
             }
-            if(textBox3.Text[17] == getCheck(textBox3.Text))
-                MessageBox.Show(textBox3.Text + "\n校检通过。", "结果");
+            if(idNumBox.Text[17] == getCheck(idNumBox.Text))
+                MessageBox.Show(idNumBox.Text + "\n校检通过。", "结果");
             else
-                MessageBox.Show(textBox3.Text + "\n校检不通过。", "结果");
+                MessageBox.Show(idNumBox.Text + "\n校检不通过。", "结果");
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void generateBtn_Click(object sender, EventArgs e)
         {
-            string xIDNum = textBox1.Text + textBox2.Text;
+            string xIDNum = placeCodeBox.Text + birthBox.Text;
             int rdidNum = Rnd.Next(500) * 2;
-            if (radioButton1.Checked)
+            if (sexSelect_1.Checked)
                 rdidNum += 1;
             string xFd = rdidNum.ToString();
             for (int i = 0; i < 3 - xFd.Length; i++)
                 xIDNum += "0";
             xIDNum += xFd;
-            textBox3.Text = xIDNum + getCheck(xIDNum).ToString();
+            idNumBox.Text = xIDNum + getCheck(xIDNum).ToString();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void helpBtn_Click(object sender, EventArgs e)
         {
             MessageBox.Show("要生成身份证号码，您需要提供三个信息：\n地区编码/生日/性别\n您可以点击“？”来参考地区编码所对应的地区。\n要验证身份证号，请输入身份证号并点击后面的“！”。\n本身份证号计算工具仅是从算法上验证，对应的身份证号码在现实中可能并不存在。\n请勿将本程序用于商业或任何非法用途！","说明");
         }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
     }
 }
