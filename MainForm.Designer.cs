@@ -42,14 +42,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.helpBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
+            this.plcPasteBtn = new System.Windows.Forms.Button();
+            this.copyIdBtn = new System.Windows.Forms.Button();
+            this.pasteIdBtn = new System.Windows.Forms.Button();
+            this.pasteBirthBtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // callPlacesFormBtn
             // 
             this.callPlacesFormBtn.Location = new System.Drawing.Point(118, 24);
             this.callPlacesFormBtn.Name = "callPlacesFormBtn";
-            this.callPlacesFormBtn.Size = new System.Drawing.Size(53, 21);
+            this.callPlacesFormBtn.Size = new System.Drawing.Size(22, 21);
             this.callPlacesFormBtn.TabIndex = 0;
+            this.callPlacesFormBtn.TabStop = false;
             this.callPlacesFormBtn.Text = "？";
             this.callPlacesFormBtn.UseVisualStyleBackColor = true;
             this.callPlacesFormBtn.Click += new System.EventHandler(this.callPlacesFormBtn_Click);
@@ -58,10 +64,10 @@
             // 
             this.sexSelect_1.AutoSize = true;
             this.sexSelect_1.Checked = true;
-            this.sexSelect_1.Location = new System.Drawing.Point(12, 91);
+            this.sexSelect_1.Location = new System.Drawing.Point(182, 29);
             this.sexSelect_1.Name = "sexSelect_1";
             this.sexSelect_1.Size = new System.Drawing.Size(35, 16);
-            this.sexSelect_1.TabIndex = 1;
+            this.sexSelect_1.TabIndex = 2;
             this.sexSelect_1.TabStop = true;
             this.sexSelect_1.Text = "男";
             this.sexSelect_1.UseVisualStyleBackColor = true;
@@ -69,10 +75,10 @@
             // sexSelect_2
             // 
             this.sexSelect_2.AutoSize = true;
-            this.sexSelect_2.Location = new System.Drawing.Point(53, 91);
+            this.sexSelect_2.Location = new System.Drawing.Point(182, 48);
             this.sexSelect_2.Name = "sexSelect_2";
             this.sexSelect_2.Size = new System.Drawing.Size(35, 16);
-            this.sexSelect_2.TabIndex = 2;
+            this.sexSelect_2.TabIndex = 3;
             this.sexSelect_2.Text = "女";
             this.sexSelect_2.UseVisualStyleBackColor = true;
             // 
@@ -82,7 +88,7 @@
             this.placeCodeBox.MaxLength = 6;
             this.placeCodeBox.Name = "placeCodeBox";
             this.placeCodeBox.Size = new System.Drawing.Size(100, 21);
-            this.placeCodeBox.TabIndex = 3;
+            this.placeCodeBox.TabIndex = 0;
             // 
             // label1
             // 
@@ -108,32 +114,32 @@
             this.birthBox.MaxLength = 8;
             this.birthBox.Name = "birthBox";
             this.birthBox.Size = new System.Drawing.Size(100, 21);
-            this.birthBox.TabIndex = 6;
+            this.birthBox.TabIndex = 1;
             // 
             // generateBtn
             // 
-            this.generateBtn.Location = new System.Drawing.Point(118, 84);
+            this.generateBtn.Location = new System.Drawing.Point(182, 70);
             this.generateBtn.Name = "generateBtn";
-            this.generateBtn.Size = new System.Drawing.Size(53, 23);
-            this.generateBtn.TabIndex = 7;
+            this.generateBtn.Size = new System.Drawing.Size(42, 21);
+            this.generateBtn.TabIndex = 4;
             this.generateBtn.Text = "生成";
             this.generateBtn.UseVisualStyleBackColor = true;
             this.generateBtn.Click += new System.EventHandler(this.generateBtn_Click);
             // 
             // idNumBox
             // 
-            this.idNumBox.Location = new System.Drawing.Point(12, 125);
+            this.idNumBox.Location = new System.Drawing.Point(12, 102);
             this.idNumBox.MaxLength = 18;
             this.idNumBox.Name = "idNumBox";
-            this.idNumBox.Size = new System.Drawing.Size(128, 21);
-            this.idNumBox.TabIndex = 8;
+            this.idNumBox.Size = new System.Drawing.Size(118, 21);
+            this.idNumBox.TabIndex = 5;
             // 
             // checkBtn
             // 
-            this.checkBtn.Location = new System.Drawing.Point(146, 125);
+            this.checkBtn.Location = new System.Drawing.Point(136, 102);
             this.checkBtn.Name = "checkBtn";
             this.checkBtn.Size = new System.Drawing.Size(25, 21);
-            this.checkBtn.TabIndex = 9;
+            this.checkBtn.TabIndex = 6;
             this.checkBtn.Text = "!";
             this.checkBtn.UseVisualStyleBackColor = true;
             this.checkBtn.Click += new System.EventHandler(this.checkBtn_Click);
@@ -141,7 +147,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 110);
+            this.label3.Location = new System.Drawing.Point(12, 87);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 12);
             this.label3.TabIndex = 10;
@@ -149,29 +155,90 @@
             // 
             // helpBtn
             // 
-            this.helpBtn.Location = new System.Drawing.Point(12, 152);
+            this.helpBtn.Location = new System.Drawing.Point(14, 129);
             this.helpBtn.Name = "helpBtn";
             this.helpBtn.Size = new System.Drawing.Size(53, 20);
             this.helpBtn.TabIndex = 11;
+            this.helpBtn.TabStop = false;
             this.helpBtn.Text = "说明";
             this.helpBtn.UseVisualStyleBackColor = true;
             this.helpBtn.Click += new System.EventHandler(this.helpBtn_Click);
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(118, 152);
+            this.exitBtn.Location = new System.Drawing.Point(171, 129);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(53, 20);
-            this.exitBtn.TabIndex = 12;
+            this.exitBtn.TabIndex = 7;
             this.exitBtn.Text = "退出";
             this.exitBtn.UseVisualStyleBackColor = true;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
+            // 
+            // plcPasteBtn
+            // 
+            this.plcPasteBtn.Location = new System.Drawing.Point(146, 24);
+            this.plcPasteBtn.Name = "plcPasteBtn";
+            this.plcPasteBtn.Size = new System.Drawing.Size(22, 21);
+            this.plcPasteBtn.TabIndex = 13;
+            this.plcPasteBtn.TabStop = false;
+            this.plcPasteBtn.Text = "P";
+            this.plcPasteBtn.UseVisualStyleBackColor = true;
+            this.plcPasteBtn.Click += new System.EventHandler(this.plcPasteBtn_Click);
+            // 
+            // copyIdBtn
+            // 
+            this.copyIdBtn.Location = new System.Drawing.Point(167, 102);
+            this.copyIdBtn.Name = "copyIdBtn";
+            this.copyIdBtn.Size = new System.Drawing.Size(25, 21);
+            this.copyIdBtn.TabIndex = 14;
+            this.copyIdBtn.TabStop = false;
+            this.copyIdBtn.Text = "C";
+            this.copyIdBtn.UseVisualStyleBackColor = true;
+            this.copyIdBtn.Click += new System.EventHandler(this.copyIdBtn_Click);
+            // 
+            // pasteIdBtn
+            // 
+            this.pasteIdBtn.Location = new System.Drawing.Point(198, 102);
+            this.pasteIdBtn.Name = "pasteIdBtn";
+            this.pasteIdBtn.Size = new System.Drawing.Size(26, 21);
+            this.pasteIdBtn.TabIndex = 15;
+            this.pasteIdBtn.TabStop = false;
+            this.pasteIdBtn.Text = "P";
+            this.pasteIdBtn.UseVisualStyleBackColor = true;
+            this.pasteIdBtn.Click += new System.EventHandler(this.pasteIdBtn_Click);
+            // 
+            // pasteBirthBtn
+            // 
+            this.pasteBirthBtn.Location = new System.Drawing.Point(118, 63);
+            this.pasteBirthBtn.Name = "pasteBirthBtn";
+            this.pasteBirthBtn.Size = new System.Drawing.Size(22, 21);
+            this.pasteBirthBtn.TabIndex = 16;
+            this.pasteBirthBtn.TabStop = false;
+            this.pasteBirthBtn.Text = "P";
+            this.pasteBirthBtn.UseVisualStyleBackColor = true;
+            this.pasteBirthBtn.Click += new System.EventHandler(this.pasteBirthBtn_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(199, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(25, 22);
+            this.button1.TabIndex = 17;
+            this.button1.TabStop = false;
+            this.button1.Text = "CA";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(180, 180);
+            this.ClientSize = new System.Drawing.Size(238, 160);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.pasteBirthBtn);
+            this.Controls.Add(this.pasteIdBtn);
+            this.Controls.Add(this.copyIdBtn);
+            this.Controls.Add(this.plcPasteBtn);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.helpBtn);
             this.Controls.Add(this.label3);
@@ -210,6 +277,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button helpBtn;
         private System.Windows.Forms.Button exitBtn;
+        private System.Windows.Forms.Button plcPasteBtn;
+        private System.Windows.Forms.Button copyIdBtn;
+        private System.Windows.Forms.Button pasteIdBtn;
+        private System.Windows.Forms.Button pasteBirthBtn;
+        private System.Windows.Forms.Button button1;
     }
 }
 

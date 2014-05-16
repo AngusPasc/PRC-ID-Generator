@@ -66,5 +66,31 @@ namespace PRCIDGenerator
             Close();
         }
 
+        private void plcPasteBtn_Click(object sender, EventArgs e)
+        {
+            placeCodeBox.Text = Clipboard.GetText();
+        }
+
+        private void pasteBirthBtn_Click(object sender, EventArgs e)
+        {
+            birthBox.Text = Clipboard.GetText();
+        }
+
+        private void pasteIdBtn_Click(object sender, EventArgs e)
+        {
+            idNumBox.Text = Clipboard.GetText();
+        }
+
+        private void copyIdBtn_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(idNumBox.Text);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            placeCodeBox.Text = birthBox.Text = idNumBox.Text = "";
+            sexSelect_1.Checked = true;
+        }
+
     }
 }
