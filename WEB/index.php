@@ -1,6 +1,6 @@
 <?php
 require_once('places.php');
-require_once('chsname.php');
+# require_once('chsname.php');
 function daysInMonth($year,$month){
 	if($month==2){
 		if(($year/4==0 and $year/100<>0) or $year/400==0)
