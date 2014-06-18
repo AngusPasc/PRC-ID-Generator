@@ -15,6 +15,7 @@ echo <<<EOF
 				<input type="hidden" name="ipt_sex" value="{$_REQUEST['ipt_sex']}" />
 				<input type="submit" value="换一个" />
 			</form>
+			{$esStr}
 		</div>
 EOF;
 include_once(PATH.'tpl/foot.php');

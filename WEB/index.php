@@ -1,4 +1,5 @@
 <?php
+# error_reporting(E_ALL);
 define('PATH',dirname(__FILE__).'/');
 require_once(PATH.'places.php');
 # require_once('chsname.php');
@@ -81,8 +82,39 @@ switch($pact){
 		}
 		break;
 	case 'getnum':
-		genID(intval($_REQUEST['ipt_loc']),intval($_REQUEST['ipt_bth']),intval($_REQUEST['ipt_sex']),-1,$gtdID);
-		include(PATH.'tpl/getnum.php');
+		$_REQUEST['ipt_loc']=intval($_REQUEST['ipt_loc']);
+		$_REQUEST['ipt_bth']=intval($_REQUEST['ipt_bth']);
+		$genRes=genID($_REQUEST['ipt_loc'],$_REQUEST['ipt_bth'],intval($_REQUEST['ipt_sex']),-1,$gtdID);
+		switch($genRes){
+			case 0:
+				$ess=array();
+				$birthDate=array(substr($_REQUEST['ipt_bth'],0,4),substr($_REQUEST['ipt_bth'],4,2),substr($_REQUEST['ipt_bth'],6,2));
+				if(!isset($placesArr[$_REQUEST['ipt_loc']]) || !$placesArr[$_REQUEST['ipt_loc']])
+					$ess[]='注意：不能确定地区编码所在地点！';
+				if($birthDate[1]<13 && $birthDate[2]<32){
+					if($birthDate[0]<date('Y')-101)
+						$ess[]='注意：此身份证号码的主人的年龄已经超出了100岁！';
+					elseif($birthDate[0].$birthDate[1].$birthDate[2]>date('Ymd'))
+						$ess[]='注意：此身份证号码的主人可能还未出生！';
+					else{
+						if(daysInMonth($birthDate[0],$birthDate[1])<$birthDate[2])
+							$ess[]="注意：在{$birthDate[0]}年{$birthDate[1]}月没有{$birthDate[2]}日！";
+					}
+				}else
+					$ess[]='注意：身份证号指定的日期不规范！';
+				$esStr=implode("\n\t\t\t<br />\n\t\t\t",$ess);
+				include(PATH.'tpl/getnum.php');
+				break;
+			case -1:
+				reportErr('地区编码必须是6位数字！');
+				break;
+			case -2:
+				reportErr('生日日期必须是8位数字！');
+				break;
+			default:
+				reportErr('Error Number Not Defined !');
+				break;
+		}
 		break;
 	case "checkNum":
 		$_REQUEST['ipt_idn']=strtoupper($_REQUEST['ipt_idn']);
