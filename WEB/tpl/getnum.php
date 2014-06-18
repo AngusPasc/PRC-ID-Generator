@@ -17,5 +17,8 @@ echo <<<EOF
 			</form>
 			{$esStr}
 		</div>
+		<div>
+			<a href="{$_SERVER['PHP_SELF']}?act=firstpage">返回</a>
+		</div>
 EOF;
 include_once(PATH.'tpl/foot.php');
