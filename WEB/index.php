@@ -1,5 +1,6 @@
 <?php
-require_once('places.php');
+define('PATH',dirname(__FILE__).'/');
+require_once(PATH.'places.php');
 # require_once('chsname.php');
 function daysInMonth($year,$month){
 	if($month==2){
@@ -44,68 +45,13 @@ function genID($location,$birth,$sex,$randNum,&$gdId){
 	return 0;
 }
 function reportErr($errInfo){
-	header('Content-Type:text/html; charset=UTF-8');
-	echo <<<EOF
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-			<title>Error!</title>
-	</head>
-	<body>
-		<div>Error: {$errInfo}</div>
-	</body>
-</html>
-EOF;
+	include(PATH.'tpl/reporterror.php');
 }
 $pact=isset($_REQUEST['act'])?$_REQUEST['act']:'firstpage';
 switch($pact){
 	case 'firstpage':
 		$setdLoc=isset($_REQUEST['ipt_usp'])?$_REQUEST['ipt_usp']:'';
-		header('Content-Type:text/html; charset=UTF-8');
-		echo <<<EOF
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>中国大陆身份证号码计算工具</title>
-	</head>
-	<body>
-		<div>
-			请在下面输入相应的数据：
-			<form action="{$_SERVER['PHP_SELF']}" method="post">
-				生成一个身份证号码：
-				<br />
-				<input type="hidden" name="act" value="getnum" />
-				地区编码（6位数字）：
-				<input name="ipt_loc" type="text" value="{$setdLoc}" size="10" maxlength="6" />
-				<br />
-				<a href="{$_SERVER['PHP_SELF']}?act=showplacesnum" target="_blank">查看地区编码表</a> - <a href="{$_SERVER['PHP_SELF']}?act=downloadPlacesNumList" target="_blank">下载地区编码表</a>
-				<br />
-				生日日期（8位数字）：
-				<input name="ipt_bth" type="text" size="10" maxlength="8" />
-				<br />
-				性别（请选择）：
-				<br />
-				<input type="radio" name="ipt_sex" value="0" checked="checked" />男/<input type="radio" name="ipt_sex" value="1" />女
-				<br />
-				<input type="submit" value="生成" />
-			</form>
-			<br />
-			<form action="{$_SERVER['PHP_SELF']}" method="post">
-				检验一个身份证号：
-				<br />
-				<input type="hidden" name="act" value="checkNum" />
-				请输入身份证号码：
-				<br />
-				<input type="text" name="ipt_idn" size="18" />
-				<br />
-				<input type="submit" value="验证" />
-			</form>
-		</div>
-	</body>
-</html>
-EOF;
+		include(PATH.'tpl/firstpage.php');
 		break;
 	case 'showplacesnum':
 		if(!is_readable('Places'))
@@ -131,53 +77,12 @@ EOF;
 			}else
 				$pageRes="<a href=\"{$_SERVER['PHP_SELF']}?act=showplacesnum&amp;p=".($_REQUEST['p']-1)."\">&lt;&lt;上一页</a>";
 			$showArr=array_slice($placesArr,$itemOffset,30,true);
-			header('Content-Type: text/html; charset=UTF-8');
-			echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n\t<head>\n\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n\t\t<title>地区编号列表</title>\n\t</head>\n\t<body>\n\t\t<div>\n";
-			foreach($showArr as $k=>$v)
-				echo "\t\t\t{$k}-{$v}\n\t\t\t<br />\n";
-			echo <<<EOF
-		</div>
-		<div>
-			<form action="{$_SERVER['PHP_SELF']}" method="post">
-				{$pageRes}
-				<br />
-				<input type="text" value="{$_REQUEST['p']}" size="3" />
-				<input type="hidden" name="act" value="showplacesnum" />
-				<input type="submit" value="&gt;&gt;" />
-			</form>
-		</div>
-	</body>
-</html>
-EOF;
+			include(PATH.'tpl/showplacesnum.php');
 		}
 		break;
 	case 'getnum':
 		genID(intval($_REQUEST['ipt_loc']),intval($_REQUEST['ipt_bth']),intval($_REQUEST['ipt_sex']),-1,$gtdID);
-		header('Content-Type:text/html; charset=UTF-8');
-		echo <<<EOF
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>生成结果：中国大陆身份证号码计算工具</title>
-	</head>
-	<body>
-		<div>
-			得到的身份证号：
-			<br />
-			<input type="text" value="{$gtdID}" size="18" />
-			<br />
-			<form action="{$_SERVER['PHP_SELF']}" method="post">
-				<input type="hidden" name="act" value="getnum" />
-				<input type="hidden" name="ipt_loc" value="{$_REQUEST['ipt_loc']}" />
-				<input type="hidden" name="ipt_bth" value="{$_REQUEST['ipt_bth']}" />
-				<input type="hidden" name="ipt_sex" value="{$_REQUEST['ipt_sex']}" />
-				<input type="submit" value="换一个" />
-			</form>
-		</div>
-	</body>
-</html>
-EOF;
+		include(PATH.'tpl/getnum.php');
 		break;
 	case "checkNum":
 		$_REQUEST['ipt_idn']=strtoupper($_REQUEST['ipt_idn']);
@@ -207,51 +112,13 @@ EOF;
 		header('Content-Type: text/html; charset=UTF-8');
 		if(!count($summery)){
 			$sex=intval(substr($_REQUEST['ipt_idn'],16,1))%2?'男':'女';
-			echo <<<EOF
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>验证结果：中国大陆身份证号码计算工具</title>
-	</head>
-	<body>
-		<div>根据计算，您输入的身份证号码：{$_REQUEST['ipt_idn']}是一个有效的身份证号码。</div>
-		<div>
-			该身份证发证所在地：{$placesArr[$placeId]}。
-			<br />
-			该身份证的持有人出生日期：{$birthDate[0]}年{$birthDate[1]}月{$birthDate[2]}日。
-			<br />
-			该身份证的持有人是{$sex}性。
-		</div>
-		<div>
-			<a href="{$_SERVER['PHP_SELF']}?act=firstpage">返回</a>
-		</div>
-	</body>
-</html>
-EOF;
+			include(PATH.'tpl/checknum_pass.php');
 		}else{
 			header('Content-Type: text/html; charset=UTF-8');
 			$eArrS='';
 			foreach($summery as $k=>$v)
 				$eArrS.="\t\t\t{$v}\n\t\t\t<br />\n";
-			echo <<<EOF
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>验证结果：中国大陆身份证号码计算工具</title>
-	</head>
-	<body>
-		<div>根据计算，您提供的身份证号码：{$_REQUEST['ipt_idn']} 存在一些问题。</div>
-		<div>
-{$eArrS}
-		</div>
-		<div>
-			<a href="{$_SERVER['PHP_SELF']}?act=firstpage">返回</a>
-		</div>
-	</body>
-</html>
-EOF;
+			include(PATH.'tpl/checknum_fail.php');
 		}
 		break;
 	case "downloadPlacesNumList":
