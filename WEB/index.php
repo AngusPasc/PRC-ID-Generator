@@ -47,6 +47,7 @@ function genID($location,$birth,$sex,$randNum,&$gdId){
 }
 function reportErr($errInfo){
 	include(PATH.'tpl/reporterror.php');
+	exit;
 }
 $pact=isset($_REQUEST['act'])?$_REQUEST['act']:'firstpage';
 switch($pact){
@@ -82,15 +83,27 @@ switch($pact){
 		}
 		break;
 	case 'getnum':
-		$_REQUEST['ipt_loc']=intval($_REQUEST['ipt_loc']);
-		$_REQUEST['ipt_bth']=intval($_REQUEST['ipt_bth']);
+		if($_REQUEST['useRandom']){
+			$_REQUEST['ipt_loc']=array_rand($placesArr);
+			$tmp=array(mt_rand(date('Y')-50,date('Y')-19),sprintf('%02s',mt_rand(1,12)),0);
+			$tmp[2]=sprintf('%02s',mt_rand(1,daysInMonth($tmp[0],$tmp[1])));
+			$_REQUEST['ipt_bth']=implode('',$tmp);
+			$_REQUEST['ipt_sex']=mt_rand(0,1);
+		}elseif($_REQUEST['useInput']){
+			$_REQUEST['ipt_loc']=intval($_REQUEST['ipt_loc']);
+			$_REQUEST['ipt_bth']=intval($_REQUEST['ipt_bth']);
+		}else
+			reportErr('Error: Neither useInput or useRandom defined.');
 		$genRes=genID($_REQUEST['ipt_loc'],$_REQUEST['ipt_bth'],intval($_REQUEST['ipt_sex']),-1,$gtdID);
 		switch($genRes){
 			case 0:
 				$ess=array();
 				$birthDate=array(substr($_REQUEST['ipt_bth'],0,4),substr($_REQUEST['ipt_bth'],4,2),substr($_REQUEST['ipt_bth'],6,2));
+				$idInfo=array('未知地区',$birthDate[0].'年'.$birthDate[1].'月'.$birthDate[2].'日',$gtdID[16]%2?'男':'女');
 				if(!isset($placesArr[$_REQUEST['ipt_loc']]) || !$placesArr[$_REQUEST['ipt_loc']])
 					$ess[]='注意：不能确定地区编码所在地点！';
+				else
+					$idInfo[0]=$placesArr[$_REQUEST['ipt_loc']];
 				if($birthDate[1]<13 && $birthDate[2]<32){
 					if($birthDate[0]<date('Y')-101)
 						$ess[]='注意：此身份证号码的主人的年龄已经超出了100岁！';
@@ -143,7 +156,7 @@ switch($pact){
 		}
 		header('Content-Type: text/html; charset=UTF-8');
 		if(!count($summery)){
-			$sex=intval(substr($_REQUEST['ipt_idn'],16,1))%2?'男':'女';
+			$sex=$_REQUEST['ipt_idn'][16]%2?'男':'女';
 			include(PATH.'tpl/checknum_pass.php');
 		}else{
 			header('Content-Type: text/html; charset=UTF-8');

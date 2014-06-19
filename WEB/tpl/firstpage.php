@@ -21,7 +21,9 @@ echo <<<EOF
 				<br />
 				<input type="radio" name="ipt_sex" value="0" checked="checked" />男/<input type="radio" name="ipt_sex" value="1" />女
 				<br />
-				<input type="submit" value="生成" />
+				<input type="submit" name='useInput' value="生成(使用输入值)" />
+				&nbsp;&nbsp;
+				<input type="submit" name='useRandom' value="生成(使用随机值)" />
 			</form>
 			<br />
 			<form action="{$_SERVER['PHP_SELF']}" method="post">
