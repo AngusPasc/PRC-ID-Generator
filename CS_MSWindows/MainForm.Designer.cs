@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.callPlacesFormBtn = new System.Windows.Forms.Button();
             this.sexSelect_1 = new System.Windows.Forms.RadioButton();
             this.sexSelect_2 = new System.Windows.Forms.RadioButton();
