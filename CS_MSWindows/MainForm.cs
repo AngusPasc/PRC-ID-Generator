@@ -15,33 +15,7 @@ namespace PRCIDGenerator
 		{
 			InitializeComponent();
 		}
-		char getCheck(string idNum)
-		{
-			var xs = new [] {
-				7,
-				9,
-				10,
-				5,
-				8,
-				4,
-				2,
-				1,
-				6,
-				3,
-				7,
-				9,
-				10,
-				5,
-				8,
-				4,
-				2
-			};
-			const string lst = "10X98765432";
-			int sumOfId = 0;
-			for (int i = 0; i < 17; i++)
-				sumOfId += (Convert.ToInt32(idNum[i].ToString()) * xs[i]);
-			return lst[sumOfId % 11];
-		}
+
 		void callPlacesFormBtn_Click(object sender, EventArgs e)
 		{
 			Form idpsf = new IDPlacesShowForm();
@@ -50,11 +24,7 @@ namespace PRCIDGenerator
 
 		void checkBtn_Click(object sender, EventArgs e)
 		{
-			if (idNumBox.Text.Length != 18) {
-				MessageBox.Show("长度不符合规范。", "结果");
-				return;
-			}
-			if (idNumBox.Text[17] == getCheck(idNumBox.Text))
+			if (PRCIDSum.isValidIdNum(idNumBox.Text))
 				MessageBox.Show(idNumBox.Text + "\n校检通过。", "结果");
 			else
 				MessageBox.Show(idNumBox.Text + "\n校检不通过。", "结果");
@@ -70,7 +40,7 @@ namespace PRCIDGenerator
 			for (int i = 0; i < 3 - xFd.Length; i++)
 				xIDNum += "0";
 			xIDNum += xFd;
-			idNumBox.Text = xIDNum + getCheck(xIDNum);
+			idNumBox.Text = xIDNum + PRCIDSum.getCheckChar(xIDNum);
 		}
 
 		void helpBtn_Click(object sender, EventArgs e)

@@ -8,7 +8,7 @@ namespace PRCIDGenerator
 	/// </summary>
 	public static class PRCIDSum
 	{
-		const int[] placesIdList = {
+		static readonly int[] placesIdList = {
 			110000,
 			110100,
 			110101,
@@ -3475,7 +3475,7 @@ namespace PRCIDGenerator
 			659000,
 			659001
 		};
-		const string[] placesList = {
+		static readonly string[] placesList = {
 			"北京市",
 			"北京市市辖区",
 			"北京市东城区",
@@ -6942,7 +6942,7 @@ namespace PRCIDGenerator
 			"新疆维吾尔族自治区直辖县级行政单位",
 			"新疆维吾尔族自治区石河子市"
 		};
-		const var numberWeighingList = new [] {
+		static readonly int[] numberWeighingList = {
 			7,
 			9,
 			10,
@@ -6971,7 +6971,7 @@ namespace PRCIDGenerator
 			for (int i = 0; i < 17; i++) {
 				sumOfId += Convert.ToInt32(idNumString[i].ToString()) * numberWeighingList[i];
 			}
-			return lastNumberIndex[sumOfId];
+			return lastNumberIndex[sumOfId % 11];
 		}
 		public static bool isValidIdNum(string idNumString)
 		{
