@@ -6987,6 +6987,8 @@ namespace PRCIDGenerator
 		}
 		public static int dayOfYearMonth(int year, int month)
 		{
+			if (month < 1 || month > 12)
+				return 0;
 			int[] month30Days = { 4, 6, 9, 11 };
 			if (Array.IndexOf(month30Days, month) != -1) {
 				return 30;
