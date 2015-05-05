@@ -69,6 +69,7 @@
     <Compile Include="IDPlacesShowForm.Designer.cs">
       <DependentUpon>IDPlacesShowForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PRCIDSum.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
