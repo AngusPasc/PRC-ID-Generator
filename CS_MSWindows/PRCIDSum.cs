@@ -3,12 +3,9 @@ using System;
 
 namespace PRCIDGenerator
 {
-	/// <summary>
-	/// Description of PRCIDSum.
-	/// </summary>
 	public static class PRCIDSum
 	{
-		static readonly int[] placesIdList = {
+		public static readonly int[] placesIdList = {
 			110000,
 			110100,
 			110101,
@@ -3475,7 +3472,7 @@ namespace PRCIDGenerator
 			659000,
 			659001
 		};
-		static readonly string[] placesList = {
+		public static readonly string[] placesList = {
 			"北京市",
 			"北京市市辖区",
 			"北京市东城区",
@@ -6942,7 +6939,7 @@ namespace PRCIDGenerator
 			"新疆维吾尔族自治区直辖县级行政单位",
 			"新疆维吾尔族自治区石河子市"
 		};
-		static readonly int[] numberWeighingList = {
+		public static readonly int[] numberWeighingList = {
 			7,
 			9,
 			10,
@@ -6961,7 +6958,7 @@ namespace PRCIDGenerator
 			4,
 			2
 		};
-		const string lastNumberIndex = "10X98765432";
+		public const string lastNumberIndex = "10X98765432";
 		public static char getCheckChar(string idNumString)
 		{
 			if (idNumString.Length < 17 || idNumString.Length > 18) {
@@ -6980,12 +6977,27 @@ namespace PRCIDGenerator
 			}
 			return idNumString[17] == getCheckChar(idNumString);
 		}
-		public static string getNumberPlace(string idNumString){
-			if (idNumString.Length<6) {
+		public static string getNumberPlace(string idNumString)
+		{
+			if (idNumString.Length < 6) {
 				return "Syntax Error";
 			}
 			int idx = Array.IndexOf(placesIdList, Convert.ToInt32(idNumString.Substring(0, 6)));
 			return idx == -1 ? "Unknown" : placesList[idx];
+		}
+		public static int dayOfYearMonth(int year, int month)
+		{
+			int[] month30Days = { 4, 6, 9, 11 };
+			if (Array.IndexOf(month30Days, month) != -1) {
+				return 30;
+			}
+			if (month == 2) {
+				if (year % 100 == 0) {
+					year = year / 100;
+				}
+				return year / 4 == 0 ? 29 : 28;
+			}
+			return 31;
 		}
 	}
 }

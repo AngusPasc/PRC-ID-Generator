@@ -40,7 +40,11 @@ namespace PRCIDGenerator
 			for (int i = 0; i < 3 - xFd.Length; i++)
 				xIDNum += "0";
 			xIDNum += xFd;
-			idNumBox.Text = xIDNum + PRCIDSum.getCheckChar(xIDNum);
+			char checkChr = PRCIDSum.getCheckChar(xIDNum);
+			if (checkChr == '?')
+				idNumBox.Text = "输入不符合规范";
+			else
+				idNumBox.Text = xIDNum + checkChr;
 		}
 
 		void helpBtn_Click(object sender, EventArgs e)
@@ -77,6 +81,16 @@ namespace PRCIDGenerator
 		{
 			placeCodeBox.Text = birthBox.Text = idNumBox.Text = "";
 			sexSelect_1.Checked = true;
+		}
+		void BtnRandomGenerateClick(object sender, EventArgs e)
+		{
+			var ra = new Random();
+			int ryear = Convert.ToInt32(DateTime.Now.Year.ToString()) - ra.Next(19, 60);
+			int rmonth = ra.Next(1, 12);
+			int rday = ra.Next(1, PRCIDSum.dayOfYearMonth(ryear, rmonth));
+			birthBox.Text = ryear + rmonth.ToString("D2") + rday.ToString("D2");
+			placeCodeBox.Text = PRCIDSum.placesIdList[ra.Next(0, PRCIDSum.placesIdList.Length)].ToString();
+			generateBtn_Click(sender, e);
 		}
 
 	}

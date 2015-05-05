@@ -47,6 +47,7 @@
         	this.pasteIdBtn = new System.Windows.Forms.Button();
         	this.pasteBirthBtn = new System.Windows.Forms.Button();
         	this.button1 = new System.Windows.Forms.Button();
+        	this.btnRandomGenerate = new System.Windows.Forms.Button();
         	this.SuspendLayout();
         	// 
         	// callPlacesFormBtn
@@ -229,11 +230,22 @@
         	this.button1.UseVisualStyleBackColor = true;
         	this.button1.Click += new System.EventHandler(this.button1_Click);
         	// 
+        	// btnRandomGenerate
+        	// 
+        	this.btnRandomGenerate.Location = new System.Drawing.Point(154, 70);
+        	this.btnRandomGenerate.Name = "btnRandomGenerate";
+        	this.btnRandomGenerate.Size = new System.Drawing.Size(22, 21);
+        	this.btnRandomGenerate.TabIndex = 18;
+        	this.btnRandomGenerate.Text = "R";
+        	this.btnRandomGenerate.UseVisualStyleBackColor = true;
+        	this.btnRandomGenerate.Click += new System.EventHandler(this.BtnRandomGenerateClick);
+        	// 
         	// MainForm
         	// 
         	this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
         	this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         	this.ClientSize = new System.Drawing.Size(238, 160);
+        	this.Controls.Add(this.btnRandomGenerate);
         	this.Controls.Add(this.button1);
         	this.Controls.Add(this.pasteBirthBtn);
         	this.Controls.Add(this.pasteIdBtn);
@@ -285,6 +297,7 @@
         private System.Windows.Forms.Button pasteIdBtn;
         private System.Windows.Forms.Button pasteBirthBtn;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRandomGenerate;
     }
 }
 
