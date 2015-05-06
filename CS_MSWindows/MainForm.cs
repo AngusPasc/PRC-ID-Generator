@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
@@ -24,27 +20,21 @@ namespace PRCIDGenerator
 
 		void checkBtn_Click(object sender, EventArgs e)
 		{
-			if (PRCIDSum.isValidIdNum(idNumBox.Text))
-				MessageBox.Show(idNumBox.Text + "\n校检通过。", "结果");
-			else
-				MessageBox.Show(idNumBox.Text + "\n校检不通过。", "结果");
+			var vForm = new FormIsNumberValid(PRCIDSum.getInformationsInIdNumber(idNumBox.Text));
+			vForm.ShowDialog(this);
+			//Hide();
 		}
 
 		void generateBtn_Click(object sender, EventArgs e)
 		{
-			string xIDNum = placeCodeBox.Text + birthBox.Text;
+			var generatedIdNumber = new StringBuilder();
+			generatedIdNumber.Append(placeCodeBox.Text).Append(birthBox.Text);
 			int rdidNum = Rnd.Next(500) * 2;
 			if (sexSelect_1.Checked)
 				rdidNum += 1;
-			string xFd = rdidNum.ToString();
-			for (int i = 0; i < 3 - xFd.Length; i++)
-				xIDNum += "0";
-			xIDNum += xFd;
-			char checkChr = PRCIDSum.getCheckChar(xIDNum);
-			if (checkChr == '?')
-				idNumBox.Text = "输入不符合规范";
-			else
-				idNumBox.Text = xIDNum + checkChr;
+			generatedIdNumber.Append(rdidNum.ToString("D3"));
+			char checkChr = PRCIDSum.getCheckChar(generatedIdNumber.ToString());
+			idNumBox.Text = checkChr == '?' ? "输入不符规范" : generatedIdNumber.Append(checkChr).ToString();
 		}
 
 		void helpBtn_Click(object sender, EventArgs e)
