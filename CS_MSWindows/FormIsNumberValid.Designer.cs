@@ -31,6 +31,7 @@ namespace PRCIDGenerator
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormIsNumberValid));
 			this.richTextBoxResults = new System.Windows.Forms.RichTextBox();
 			this.buttonClose = new System.Windows.Forms.Button();
 			this.SuspendLayout();
@@ -69,6 +70,7 @@ namespace PRCIDGenerator
 			this.Controls.Add(this.buttonClose);
 			this.Controls.Add(this.richTextBoxResults);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.MaximumSize = new System.Drawing.Size(324, 204);
 			this.MinimizeBox = false;
