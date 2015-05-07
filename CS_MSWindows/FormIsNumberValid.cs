@@ -20,7 +20,6 @@ namespace PRCIDGenerator
 		void FormIsNumberValidLoad(object sender, EventArgs e)
 		{
 			if (xValues.Length != 5) {
-				Console.WriteLine("错误的参数传递，showValues应该保持为4个String。");
 				Close();
 			}
 			string[] contentsPrefixs = { "身份证号码：", "性别：", "出生日期：", "身份证所在地：", "号码有效性：" };

@@ -16,7 +16,7 @@ namespace PRCIDGenerator
 				}
 			}
 			int sumOfId = 0;
-			for (int i = 0; i < 16; i++) {
+			for (int i = 0; i < 17; i++) {
 				sumOfId += Convert.ToInt32(idNumString[i].ToString()) * numberWeighingList[i];
 			}
 			return lastNumberIndex[sumOfId % 11];
@@ -67,7 +67,7 @@ namespace PRCIDGenerator
 			}
 			return new [] {
 				idNumString,
-				Convert.ToInt32(idNumString[16].ToString()) % 2 == 0 ? "男" : "女",
+				Convert.ToInt32(idNumString[16].ToString()) % 2 == 0 ? "女" : "男",
 				idNumString.Substring(6, 4) + "年" + idNumString.Substring(10, 2) + "月" + idNumString.Substring(12, 2) + "日",
 				getNumberPlace(idNumString),
 				isValidIdNum(idNumString) ? "有效号码" : "无效号码"
