@@ -65,16 +65,9 @@ namespace PRCIDGenerator
 			if (idNumString.Length != 18) {
 				return new [] { idNumString, "", "", "", "无效号码" };
 			}
-			/*string sex = Convert.ToInt32(idNumString[17].ToString()) % 2 == 0 ? "男" : "女";
-			string birthDate = idNumString.Substring(6, 4) + "年" + idNumString.Substring(10, 2) + "月" + idNumString.Substring(12, 2) + "日";
-			string numberPlace = getNumberPlace(idNumString);
-			string validInfo = isValidIdNum(idNumString) ? "有效号码" : "无效号码";
-			return new [] {
-				idNumString, sex, birthDate, numberPlace, validInfo
-			};*/
 			return new [] {
 				idNumString,
-				Convert.ToInt32(idNumString[17].ToString()) % 2 == 0 ? "男" : "女",
+				Convert.ToInt32(idNumString[16].ToString()) % 2 == 0 ? "男" : "女",
 				idNumString.Substring(6, 4) + "年" + idNumString.Substring(10, 2) + "月" + idNumString.Substring(12, 2) + "日",
 				getNumberPlace(idNumString),
 				isValidIdNum(idNumString) ? "有效号码" : "无效号码"

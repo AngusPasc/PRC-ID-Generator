@@ -75,7 +75,7 @@ namespace PRCIDGenerator
 		void BtnRandomGenerateClick(object sender, EventArgs e)
 		{
 			var ra = new Random();
-			int ryear = Convert.ToInt32(DateTime.Now.Year.ToString()) - ra.Next(19, 60);
+			int ryear = Convert.ToInt32(DateTime.Now.Year.ToString()) - ra.Next(19, 45);
 			int rmonth = ra.Next(1, 12);
 			int rday = ra.Next(1, PRCIDSum.dayOfYearMonth(ryear, rmonth));
 			birthBox.Text = ryear + rmonth.ToString("D2") + rday.ToString("D2");
