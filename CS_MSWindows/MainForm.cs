@@ -22,7 +22,6 @@ namespace PRCIDGenerator
 		{
 			var vForm = new FormIsNumberValid(PRCIDSum.getInformationsInIdNumber(idNumBox.Text));
 			vForm.ShowDialog(this);
-			//Hide();
 		}
 
 		void generateBtn_Click(object sender, EventArgs e)
