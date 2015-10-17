@@ -1,5 +1,9 @@
 CS_MSWindows/bin
 CS_MSWindows/obj
-WEB/nbproject
 *.suo
 *~
+*.exe
+*.res
+*.lps
+Pascal/lib
+Pascal/backup

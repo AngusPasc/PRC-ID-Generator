@@ -14,14 +14,14 @@ function gpr($requestKey){
 }
 function daysInMonth($year,$month){
 	if($month==2){
-		if(($year/4==0 and $year/100<>0) or $year/400==0){
+		if(($year%4==0 and $year%100<>0) or $year%400==0){
 			return 29;
                 }else{
 			return 28;
                 }
 	}elseif($month<8 and $month%2){
 		return 31;
-        }elseif(!$month/2){
+        }elseif(!$month%2){
 		return 31;
         }else{
 		return 30;
