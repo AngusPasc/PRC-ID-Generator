@@ -56,13 +56,14 @@ end;
 
 procedure TMainForm.ButtonGenerateClick(Sender: TObject);
 var
-  orderNum: String;
+  orderNum: Integer;
   checkNum: Char;
   tempNum: String;
 begin
   Randomize;
-  orderNum := MaskIntStr(Random(1000), 4);
-  tempNum := LabeledEditPlaceNumber.Text + LabeledEditBirthDate.Text + orderNum;
+  if RadioButtonGenderMale.Checked then orderNum := (Random(500) * 2 + 1)
+  else orderNum := (Random(500) * 2);
+  tempNum := LabeledEditPlaceNumber.Text + LabeledEditBirthDate.Text + MaskIntStr(orderNum, 3);
   checkNum := GetCheck(tempNum);
   if checkNum = '?' then Application.MessageBox('输入不正确，请检查输入。', '提示信息')
   else LabeledEditIDNumber.Text := tempNum + checkNum;
