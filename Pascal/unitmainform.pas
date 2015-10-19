@@ -17,14 +17,17 @@ type
   TMainForm = class(TForm)
     ButtonCheck: TButton;
     ButtonGenerate: TButton;
+    EditOrderNumber: TEdit;
     GroupBoxGenderSelector: TGroupBox;
     LabeledEditPlaceNumber: TLabeledEdit;
     LabeledEditBirthDate: TLabeledEdit;
     LabeledEditIDNumber: TLabeledEdit;
+    RadioButtonDefineOrderNumber: TRadioButton;
     RadioButtonGerderFemale: TRadioButton;
     RadioButtonGenderMale: TRadioButton;
     procedure ButtonCheckClick(Sender: TObject);
     procedure ButtonGenerateClick(Sender: TObject);
+    procedure RadioButtonDefineOrderNumberChange(Sender: TObject);
   private
     { private declarations }
   public
@@ -61,12 +64,27 @@ var
   tempNum: String;
 begin
   Randomize;
-  if RadioButtonGenderMale.Checked then orderNum := (Random(500) * 2 + 1)
-  else orderNum := (Random(500) * 2);
+  if RadioButtonDefineOrderNumber.Checked = True then begin
+    try
+      orderNum := StrToInt(EditOrderNumber.Text);
+    except
+      Application.MessageBox('请输入正确格式的顺序号码。', '提示信息');
+      Exit;
+    end;
+  end else begin
+      if RadioButtonGenderMale.Checked then orderNum := (Random(500) * 2 + 1)
+      else orderNum := (Random(500) * 2);
+  end;
   tempNum := LabeledEditPlaceNumber.Text + LabeledEditBirthDate.Text + MaskIntStr(orderNum, 3);
   checkNum := GetCheck(tempNum);
   if checkNum = '?' then Application.MessageBox('输入不正确，请检查输入。', '提示信息')
   else LabeledEditIDNumber.Text := tempNum + checkNum;
+end;
+
+procedure TMainForm.RadioButtonDefineOrderNumberChange(Sender: TObject);
+begin
+  if RadioButtonDefineOrderNumber.Checked then EditOrderNumber.Enabled := True
+  else EditOrderNumber.Enabled := False;
 end;
 
 procedure TMainForm.ButtonCheckClick(Sender: TObject);
