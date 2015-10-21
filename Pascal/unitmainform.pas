@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs,
-  ExtCtrls, StdCtrls, IDNumCalc;
+  ExtCtrls, StdCtrls, IDNumCalc, MonthDaysCalc, PlacesList;
 
 function MaskIntStr(originInt: Integer; needLength: Integer): String;
 
@@ -24,10 +24,11 @@ type
     LabeledEditBirthDate: TLabeledEdit;
     LabeledEditIDNumber: TLabeledEdit;
     RadioButtonDefineOrderNumber: TRadioButton;
-    RadioButtonGerderFemale: TRadioButton;
+    RadioButtonGenderFemale: TRadioButton;
     RadioButtonGenderMale: TRadioButton;
     procedure ButtonCheckClick(Sender: TObject);
     procedure ButtonGenerateClick(Sender: TObject);
+    procedure ButtonRandomAllClick(Sender: TObject);
     procedure RadioButtonDefineOrderNumberChange(Sender: TObject);
   private
     { private declarations }
@@ -82,6 +83,21 @@ begin
   else LabeledEditIDNumber.Text := tempNum + checkNum;
 end;
 
+procedure TMainForm.ButtonRandomAllClick(Sender: TObject);
+var
+  year: Integer;
+  month: Integer;
+begin
+  Randomize;
+  LabeledEditPlaceNumber.Text := IntToStr(placeNumbers[Random(Length(placeNumbers)) + 1]);
+  year := StrToInt(FormatDateTime('YYYY', Now)) - Random(40);
+  month := Random(12) + 1;
+  LabeledEditBirthDate.Text := IntToStr(year) + MaskIntStr(month, 2) + MaskIntStr(Random(GetMonthDays(year, month)) + 1, 2);
+  if Random(2) = 0 then RadioButtonGenderMale.Checked := True
+  else RadioButtonGenderFemale.Checked := True;
+  ButtonGenerateClick(Sender);
+end;
+
 procedure TMainForm.RadioButtonDefineOrderNumberChange(Sender: TObject);
 begin
   if RadioButtonDefineOrderNumber.Checked then EditOrderNumber.Enabled := True
@@ -91,13 +107,16 @@ end;
 procedure TMainForm.ButtonCheckClick(Sender: TObject);
 var
   msg: String;
+  tempStr: String;
 begin
+  msg := '身份证号码：' + LabeledEditIDNumber.Text + #13;
   if IsValidIDNum(LabeledEditIDNumber.Text) then begin
-    msg := GetNumberPlace(LabeledEditIDNumber.Text);
-    if msg = '' then msg := '该地区在数据库中不存在';
-    msg := '身份证校检号码通过，身份证所在地：' + #13 + msg;
-    Application.MessageBox(StrPCopy('', msg), '提示信息');
-  end else Application.MessageBox('不是一个有效的身份证号码', '提示信息');
+    msg := msg + '号码校检通过' + #13;
+    tempStr := GetNumberPlace(LabeledEditIDNumber.Text);
+    if tempStr = '' then tempStr := '该地区在数据库中不存在';
+    msg := msg + '所在地：' + tempStr;
+  end else msg := '这不是一个有效的身份证号码！';
+  Application.MessageBox(StrPCopy('', msg), '提示信息');
 end;
 
 end.

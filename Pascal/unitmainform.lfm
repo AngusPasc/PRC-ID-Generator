@@ -83,7 +83,7 @@ object MainForm: TMainForm
       TabOrder = 0
       TabStop = True
     end
-    object RadioButtonGerderFemale: TRadioButton
+    object RadioButtonGenderFemale: TRadioButton
       Left = 8
       Height = 19
       Top = 24
@@ -134,6 +134,7 @@ object MainForm: TMainForm
     Top = 144
     Width = 50
     Caption = '全随机'
+    OnClick = ButtonRandomAllClick
     TabOrder = 6
   end
 end
