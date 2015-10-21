@@ -90,7 +90,7 @@ var
 begin
   Randomize;
   LabeledEditPlaceNumber.Text := IntToStr(placeNumbers[Random(Length(placeNumbers)) + 1]);
-  year := StrToInt(FormatDateTime('YYYY', Now)) - Random(40);
+  year := StrToInt(FormatDateTime('YYYY', Now)) - Random(20) - 20;
   month := Random(12) + 1;
   LabeledEditBirthDate.Text := IntToStr(year) + MaskIntStr(month, 2) + MaskIntStr(Random(GetMonthDays(year, month)) + 1, 2);
   if Random(2) = 0 then RadioButtonGenderMale.Checked := True
