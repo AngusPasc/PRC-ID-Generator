@@ -111,21 +111,29 @@ object MainForm: TMainForm
     end
   end
   object ButtonGenerate: TButton
-    Left = 192
-    Height = 25
-    Top = 128
-    Width = 75
-    Caption = '生成'
-    OnClick = ButtonGenerateClick
-    TabOrder = 4
-  end
-  object ButtonCheck: TButton
-    Left = 93
+    Left = 222
     Height = 25
     Top = 144
-    Width = 75
+    Width = 51
+    Caption = '生成'
+    OnClick = ButtonGenerateClick
+    TabOrder = 5
+  end
+  object ButtonCheck: TButton
+    Left = 168
+    Height = 25
+    Top = 144
+    Width = 48
     Caption = '检查'
     OnClick = ButtonCheckClick
-    TabOrder = 5
+    TabOrder = 4
+  end
+  object ButtonRandomAll: TButton
+    Left = 112
+    Height = 25
+    Top = 144
+    Width = 50
+    Caption = '全随机'
+    TabOrder = 6
   end
 end

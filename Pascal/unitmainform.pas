@@ -15,6 +15,7 @@ type
   { TMainForm }
 
   TMainForm = class(TForm)
+    ButtonRandomAll: TButton;
     ButtonCheck: TButton;
     ButtonGenerate: TButton;
     EditOrderNumber: TEdit;
@@ -88,9 +89,15 @@ begin
 end;
 
 procedure TMainForm.ButtonCheckClick(Sender: TObject);
+var
+  msg: String;
 begin
-  if IsValidIDNum(LabeledEditIDNumber.Text) then Application.MessageBox('是一个有效的身份证号码', '提示信息')
-  else Application.MessageBox('不是一个有效的身份证号码', '提示信息');
+  if IsValidIDNum(LabeledEditIDNumber.Text) then begin
+    msg := GetNumberPlace(LabeledEditIDNumber.Text);
+    if msg = '' then msg := '该地区在数据库中不存在';
+    msg := '身份证校检号码通过，身份证所在地：' + #13 + msg;
+    Application.MessageBox(StrPCopy('', msg), '提示信息');
+  end else Application.MessageBox('不是一个有效的身份证号码', '提示信息');
 end;
 
 end.
