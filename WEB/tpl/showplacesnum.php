@@ -1,7 +1,7 @@
 <?php
         if(!defined('PATH')){die('Access denied.');}
 	$titleName='地区编号列表';
-	include_once(PATH.'tpl/head.php');
+	include_once(PATH.'tpl/header.php');
 ?>
 	<div>
 <?php
@@ -18,4 +18,4 @@ foreach($showArr as $k=>$v){echo "\t\t\t{$k}-{$v}\n\t\t\t<br />\n";}
 			</form>
 		</div>
 <?php
-include_once(PATH.'tpl/foot.php');
+include_once(PATH.'tpl/footer.php');
