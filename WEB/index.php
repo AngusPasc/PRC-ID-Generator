@@ -101,6 +101,10 @@ switch($pact){
 			}else{
 				$pageRes='<a href="'.SURL.'?act=showplacesnum&amp;p='.($currentPage-1).'>&lt;&lt;上一页</a>';
                         }
+            //show pager number
+           	$show_pager_number='';
+            for($i=0;$i<=$maxPageNum;$i++)
+            	$show_pager_number=$show_pager_number.'<a href="'.SURL.'?act=showplacesnum&amp;p='.$i.'">'.$i.'页---</a>'; 
 			$showArr=array_slice($placesArr,$itemOffset,30,true);
 			include(PATH.'tpl/showplacesnum.php');
 		}
