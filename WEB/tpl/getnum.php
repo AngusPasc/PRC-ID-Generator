@@ -33,4 +33,4 @@
                     <a href="<?php echo SURL;?>?act=firstpage">返回</a>
 		</div>
 <?php
-include_once(PATH.'tpl/foot.php');
+include_once(PATH.'tpl/footer.php');
