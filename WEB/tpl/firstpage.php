@@ -1,7 +1,7 @@
 <?php
 if(!defined('PATH')){die('Access denied.');}
 $titleName='中国大陆身份证号码计算工具';
-include_once(PATH.'tpl/head.php');
+include_once(PATH.'tpl/header.php');
 ?>
 		<div>
 			请在下面输入相应的数据：
@@ -38,4 +38,4 @@ include_once(PATH.'tpl/head.php');
 			</form>
 		</div>
 <?php
-include_once(PATH.'tpl/foot.php');
+include_once(PATH.'tpl/footer.php');

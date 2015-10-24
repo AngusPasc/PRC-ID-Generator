@@ -1,7 +1,7 @@
 <?php
         if(!defined('PATH')){die('Access denied.');}
 	$titleName='生成结果：中国大陆身份证号码计算工具';
-	include_once(PATH.'tpl/head.php');
+	include_once(PATH.'tpl/header.php');
 ?>
 		<div>
 			得到的身份证号：
