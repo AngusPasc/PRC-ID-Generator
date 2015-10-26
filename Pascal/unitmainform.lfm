@@ -137,4 +137,22 @@ object MainForm: TMainForm
     OnClick = ButtonRandomAllClick
     TabOrder = 6
   end
+  object LabelShowPlacesListForm: TLabel
+    Cursor = crHandPoint
+    Left = 8
+    Height = 14
+    Top = 150
+    Width = 84
+    Caption = '显示地区编码表'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsUnderline]
+    ParentColor = False
+    ParentFont = False
+    OnClick = LabelShowPlacesListFormClick
+  end
 end

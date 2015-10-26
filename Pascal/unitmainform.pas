@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs,
-  ExtCtrls, StdCtrls, IDNumCalc, MonthDaysCalc, PlacesList;
+  ExtCtrls, StdCtrls, IDNumCalc, MonthDaysCalc, PlacesList, UnitFormPlacesList;
 
 function MaskIntStr(originInt: Integer; needLength: Integer): String;
 
@@ -20,6 +20,7 @@ type
     ButtonGenerate: TButton;
     EditOrderNumber: TEdit;
     GroupBoxGenderSelector: TGroupBox;
+    LabelShowPlacesListForm: TLabel;
     LabeledEditPlaceNumber: TLabeledEdit;
     LabeledEditBirthDate: TLabeledEdit;
     LabeledEditIDNumber: TLabeledEdit;
@@ -29,6 +30,7 @@ type
     procedure ButtonCheckClick(Sender: TObject);
     procedure ButtonGenerateClick(Sender: TObject);
     procedure ButtonRandomAllClick(Sender: TObject);
+    procedure LabelShowPlacesListFormClick(Sender: TObject);
     procedure RadioButtonDefineOrderNumberChange(Sender: TObject);
   private
     { private declarations }
@@ -96,6 +98,11 @@ begin
   if Random(2) = 0 then RadioButtonGenderMale.Checked := True
   else RadioButtonGenderFemale.Checked := True;
   ButtonGenerateClick(Sender);
+end;
+
+procedure TMainForm.LabelShowPlacesListFormClick(Sender: TObject);
+begin
+  FormPlacesList.Show;
 end;
 
 procedure TMainForm.RadioButtonDefineOrderNumberChange(Sender: TObject);
