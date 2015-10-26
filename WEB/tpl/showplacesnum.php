@@ -11,6 +11,7 @@ foreach($showArr as $k=>$v){echo "\t\t\t{$k}-{$v}\n\t\t\t<br />\n";}
 		<div>
                     <form action="<?php echo SURL;?>" method="post">
 				<?php echo $pageRes;?>
+				<?php echo $show_pager_number;?>
 				<br />
                                 <input type="text" value="<?php echo $currentPage;?>" size="3" />
 				<input type="hidden" name="act" value="showplacesnum" />
