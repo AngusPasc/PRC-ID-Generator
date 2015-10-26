@@ -94,6 +94,7 @@
         <Filename Value="unitformplaceslist.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FormPlacesList"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UnitFormPlacesList"/>
       </Unit5>
