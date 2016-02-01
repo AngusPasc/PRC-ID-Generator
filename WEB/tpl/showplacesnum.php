@@ -1,5 +1,5 @@
 <?php
-        if(!defined('PATH')){die('Access denied.');}
+	if(!defined('PATH')){die('Access denied.');}
 	$titleName='地区编号列表';
 	include_once(PATH.'tpl/header.php');
 ?>
@@ -9,11 +9,12 @@ foreach($showArr as $k=>$v){echo "\t\t\t{$k}-{$v}\n\t\t\t<br />\n";}
 ?>
 		</div>
 		<div>
-                    <form action="<?php echo SURL;?>" method="post">
+			<form action="<?php echo SURL;?>" method="post">
 				<?php echo $pageRes;?>
-				<?php echo $show_pager_number;?>
 				<br />
-                                <input type="text" value="<?php echo $currentPage;?>" size="3" />
+				当前第<?php echo $currentPage;?>页，共<?php echo $maxPageNum;?>页。
+				<br />
+				<input type="text" value="<?php echo $currentPage;?>" size="3" />
 				<input type="hidden" name="act" value="showplacesnum" />
 				<input type="submit" value="&gt;&gt;" />
 			</form>
