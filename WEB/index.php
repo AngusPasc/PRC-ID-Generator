@@ -1,11 +1,11 @@
 <?php
 # error_reporting(E_ALL);
+@ini_set('zlib.output_compression_level', 5);
+@ini_set('zlib.output_compression', 'On');
 define('PATH',dirname(__FILE__).'/');
 require_once(PATH.'places.php');
-# require_once('chsname.php');
 define('SURL',filter_input(INPUT_SERVER,'PHP_SELF'));
 date_default_timezone_set('Asia/Shanghai');
-# define('SURL',$_SERVER['PHP_SELF']);
 if(SURL==NULL){
   die('Function `filter_input` not works properly! you can use `$_POST` `$_GET` `$_SERVER` and etc. instand if you want.');
 }
