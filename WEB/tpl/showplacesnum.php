@@ -25,7 +25,7 @@ foreach($showArr as $k=>$v){echo "\t\t\t{$k}-{$v}\n\t\t\t<br />\n";}
 				<br />
 				当前第<?php echo $currentPage;?>页，共<?php echo $maxPageNum;?>页。
 				<br />
-				<input type="text" value="<?php echo $currentPage;?>" size="3" />
+				<input type="text" name="p" value="<?php echo $currentPage;?>" size="3" />
 				<input type="hidden" name="act" value="showplacesnum" />
 				<input type="submit" value="&gt;&gt;" />
 			</form>
