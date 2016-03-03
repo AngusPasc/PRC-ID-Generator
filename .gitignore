@@ -5,5 +5,6 @@ CS_MSWindows/obj
 *.exe
 *.res
 *.lps
+*.bak
 Pascal/lib
 Pascal/backup

@@ -1,18 +1,18 @@
 object MainForm: TMainForm
   Left = 0
-  Height = 180
+  Height = 185
   Top = 0
-  Width = 282
+  Width = 283
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = '中国大陆身份证号码计算工具'
-  ClientHeight = 180
-  ClientWidth = 282
+  ClientHeight = 185
+  ClientWidth = 283
   Position = poDefault
-  LCLVersion = '1.4.4.0'
+  LCLVersion = '1.6.0.4'
   object LabeledEditPlaceNumber: TLabeledEdit
     Left = 8
-    Height = 23
+    Height = 25
     Top = 24
     Width = 160
     EditLabel.AnchorSideLeft.Control = LabeledEditPlaceNumber
@@ -20,8 +20,8 @@ object MainForm: TMainForm
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = LabeledEditPlaceNumber
     EditLabel.Left = 8
-    EditLabel.Height = 15
-    EditLabel.Top = 6
+    EditLabel.Height = 17
+    EditLabel.Top = 4
     EditLabel.Width = 160
     EditLabel.Caption = '地区码（6位）：'
     EditLabel.ParentColor = False
@@ -30,7 +30,7 @@ object MainForm: TMainForm
   end
   object LabeledEditBirthDate: TLabeledEdit
     Left = 8
-    Height = 23
+    Height = 25
     Top = 72
     Width = 160
     EditLabel.AnchorSideLeft.Control = LabeledEditBirthDate
@@ -38,8 +38,8 @@ object MainForm: TMainForm
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = LabeledEditBirthDate
     EditLabel.Left = 8
-    EditLabel.Height = 15
-    EditLabel.Top = 54
+    EditLabel.Height = 17
+    EditLabel.Top = 52
     EditLabel.Width = 160
     EditLabel.Caption = '出生日期（YYYYMMDD）：'
     EditLabel.ParentColor = False
@@ -48,7 +48,7 @@ object MainForm: TMainForm
   end
   object LabeledEditIDNumber: TLabeledEdit
     Left = 8
-    Height = 23
+    Height = 25
     Top = 120
     Width = 160
     EditLabel.AnchorSideLeft.Control = LabeledEditIDNumber
@@ -56,8 +56,8 @@ object MainForm: TMainForm
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = LabeledEditIDNumber
     EditLabel.Left = 8
-    EditLabel.Height = 15
-    EditLabel.Top = 102
+    EditLabel.Height = 17
+    EditLabel.Top = 100
     EditLabel.Width = 160
     EditLabel.Caption = '身份证号码：'
     EditLabel.ParentColor = False
@@ -70,12 +70,12 @@ object MainForm: TMainForm
     Top = 8
     Width = 81
     Caption = '顺序码：'
-    ClientHeight = 100
+    ClientHeight = 98
     ClientWidth = 77
     TabOrder = 3
     object RadioButtonGenderMale: TRadioButton
       Left = 8
-      Height = 19
+      Height = 21
       Top = 0
       Width = 46
       Caption = '男性'
@@ -85,7 +85,7 @@ object MainForm: TMainForm
     end
     object RadioButtonGenderFemale: TRadioButton
       Left = 8
-      Height = 19
+      Height = 21
       Top = 24
       Width = 46
       Caption = '女性'
@@ -93,7 +93,7 @@ object MainForm: TMainForm
     end
     object RadioButtonDefineOrderNumber: TRadioButton
       Left = 8
-      Height = 19
+      Height = 21
       Top = 48
       Width = 46
       Caption = '指定'
@@ -102,7 +102,7 @@ object MainForm: TMainForm
     end
     object EditOrderNumber: TEdit
       Left = 8
-      Height = 23
+      Height = 25
       Top = 72
       Width = 46
       Enabled = False
@@ -113,7 +113,7 @@ object MainForm: TMainForm
   object ButtonGenerate: TButton
     Left = 222
     Height = 25
-    Top = 144
+    Top = 150
     Width = 51
     Caption = '生成'
     OnClick = ButtonGenerateClick
@@ -122,7 +122,7 @@ object MainForm: TMainForm
   object ButtonCheck: TButton
     Left = 168
     Height = 25
-    Top = 144
+    Top = 150
     Width = 48
     Caption = '检查'
     OnClick = ButtonCheckClick
@@ -131,7 +131,7 @@ object MainForm: TMainForm
   object ButtonRandomAll: TButton
     Left = 112
     Height = 25
-    Top = 144
+    Top = 150
     Width = 50
     Caption = '全随机'
     OnClick = ButtonRandomAllClick
@@ -141,7 +141,7 @@ object MainForm: TMainForm
     Cursor = crHandPoint
     Left = 8
     Height = 14
-    Top = 150
+    Top = 152
     Width = 84
     Caption = '显示地区编码表'
     Font.CharSet = ANSI_CHARSET
