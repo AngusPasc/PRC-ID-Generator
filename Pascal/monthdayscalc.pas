@@ -20,7 +20,7 @@ begin
   if (month < 1) or (month > 12) then GetMonthDays := 0
   else begin
     for i := 1 to Length(MonthsHaving30Days) do begin
-        if MonthsHaving30Days[i] = month then GetMonthDays := 30;
+      if MonthsHaving30Days[i] = month then GetMonthDays := 30;
     end;
     if GetMonthDays = 0 then begin
       if month = 2 then begin
@@ -36,6 +36,7 @@ end;
 
 function IsValidDate(dateString: String): Boolean;
 begin
+  IsValidDate := False;
   if(Length(dateString) = 8) then begin
     try
       if GetMonthDays(StrToInt(dateString[1..4]), StrToInt(dateString[5..6])) < StrToInt(dateString[7..8]) then IsValidDate := False
@@ -43,7 +44,7 @@ begin
     except
       IsValidDate := False;
     end;
-  end else IsValidDate := False;
+  end;
 end;
 
 end.

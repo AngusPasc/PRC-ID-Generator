@@ -123,7 +123,7 @@ begin
     if tempStr = '' then tempStr := '该地区在数据库中不存在';
     msg := msg + '所在地：' + tempStr;
   end else msg := '这不是一个有效的身份证号码！';
-  Application.MessageBox(StrPCopy('', msg), '提示信息');
+  Application.MessageBox(PChar(msg), '提示信息');
 end;
 
 end.
