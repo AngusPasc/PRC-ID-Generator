@@ -16,6 +16,7 @@ function GetMonthDays(year: Integer; month: Integer): Integer;
 var
   i: Integer;
 begin
+  GetMonthDays := 0;
   if (month < 1) or (month > 12) then GetMonthDays := 0
   else begin
     for i := 1 to Length(MonthsHaving30Days) do begin
