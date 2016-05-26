@@ -14,15 +14,15 @@ type
 
   TFormPlacesList = class(TForm)
     BitBtnSearch: TBitBtn;
+    ButtonPrev: TButton;
+    ButtonNext: TButton;
     EditSearch: TEdit;
-    LabelPerv: TLabel;
-    LabelNext: TLabel;
     StaticTextListContent: TStaticText;
     procedure BitBtnSearchClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
-    procedure LabelNextClick(Sender: TObject);
-    procedure LabelPervClick(Sender: TObject);
+    procedure ButtonNextClick(Sender: TObject);
+    procedure ButtonPervClick(Sender: TObject);
     procedure LoadList(contentOffset: Integer);
   private
     { private declarations }
@@ -42,12 +42,12 @@ implementation
 
 { TFormPlacesList }
 
-procedure TFormPlacesList.LabelNextClick(Sender: TObject);
+procedure TFormPlacesList.ButtonNextClick(Sender: TObject);
 begin
   LoadList(pageEndOffset + 1);
 end;
 
-procedure TFormPlacesList.LabelPervClick(Sender: TObject);
+procedure TFormPlacesList.ButtonPervClick(Sender: TObject);
 begin
   LoadList(pageOffset - 21);
 end;

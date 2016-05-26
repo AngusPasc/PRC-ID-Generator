@@ -12,25 +12,7 @@ object FormPlacesList: TFormPlacesList
   OnCreate = FormCreate
   Position = poDefault
   ShowInTaskBar = stNever
-  LCLVersion = '1.4.4.0'
-  object LabelNext: TLabel
-    Cursor = crHandPoint
-    Left = 240
-    Height = 16
-    Top = 368
-    Width = 64
-    Caption = '下一页>>'
-    Font.CharSet = ANSI_CHARSET
-    Font.Color = clBlue
-    Font.Height = -13
-    Font.Name = 'Arial'
-    Font.Pitch = fpVariable
-    Font.Quality = fqDraft
-    Font.Style = [fsUnderline]
-    ParentColor = False
-    ParentFont = False
-    OnClick = LabelNextClick
-  end
+  LCLVersion = '1.6.0.4'
   object EditSearch: TEdit
     Left = 8
     Height = 23
@@ -97,22 +79,22 @@ object FormPlacesList: TFormPlacesList
     Width = 304
     TabOrder = 2
   end
-  object LabelPerv: TLabel
-    Cursor = crHandPoint
-    Left = 168
-    Height = 16
-    Top = 368
-    Width = 64
-    Caption = '<<上一页'
-    Font.CharSet = ANSI_CHARSET
-    Font.Color = clBlue
-    Font.Height = -13
-    Font.Name = 'Arial'
-    Font.Pitch = fpVariable
-    Font.Quality = fqDraft
-    Font.Style = [fsUnderline]
-    ParentColor = False
-    ParentFont = False
-    OnClick = LabelPervClick
+  object ButtonPrev: TButton
+    Left = 224
+    Height = 25
+    Top = 360
+    Width = 35
+    Caption = '<<'
+    OnClick = ButtonPervClick
+    TabOrder = 3
+  end
+  object ButtonNext: TButton
+    Left = 272
+    Height = 25
+    Top = 360
+    Width = 32
+    Caption = '>>'
+    OnClick = ButtonNextClick
+    TabOrder = 4
   end
 end

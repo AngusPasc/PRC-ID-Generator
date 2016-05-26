@@ -31,6 +31,8 @@
             <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <CodeGeneration>
+            <SmartLinkUnit Value="True"/>
+            <RelocatableUnit Value="True"/>
             <Optimizations>
               <OptimizationLevel Value="4"/>
             </Optimizations>
@@ -40,12 +42,16 @@
             <Debugging>
               <GenerateDebugInfo Value="False"/>
             </Debugging>
+            <LinkSmart Value="True"/>
             <Options>
               <Win32>
                 <GraphicApplication Value="True"/>
               </Win32>
             </Options>
           </Linking>
+          <Other>
+            <WriteFPCLogo Value="False"/>
+          </Other>
         </CompilerOptions>
       </Item2>
     </BuildModes>
